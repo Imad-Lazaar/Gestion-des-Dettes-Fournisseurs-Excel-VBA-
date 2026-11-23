@@ -2,8 +2,6 @@
 
 Application Excel pour suivre les factures fournisseurs, les règlements et les retards de paiement, avec un tableau de bord interactif et des macros VBA.
 
-> **Projet d'apprentissage.** Je suis parti d'un tutoriel YouTube ([auteur et lien à ajouter]). J'ai d'abord essayé de le construire seul, en regardant la vidéo quand j'étais bloqué, puis je l'ai **reconstruit de zéro** avec mes propres données et mes propres corrections (voir plus bas). Les données (fournisseurs, factures, montants) sont **fictives**.
-
 ## Aperçu
 
 <img width="856" height="488" alt="TB" src="https://github.com/user-attachments/assets/ed9dea0c-557c-4c72-aabe-db54a0c379b5" />
