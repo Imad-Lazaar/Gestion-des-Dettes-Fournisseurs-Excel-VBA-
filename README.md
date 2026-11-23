@@ -1,44 +1,51 @@
-# Gestion des Dettes Fournisseurs (Excel/VBA)
+# Gestion des dettes fournisseurs (Excel + VBA)
 
-Outil Excel pour suivre les factures fournisseurs, les paiements, et le retard de paiement (aging), avec un tableau de bord.
+Application Excel pour suivre les factures fournisseurs, les règlements et les retards de paiement, avec un tableau de bord interactif et des macros VBA.
 
-## Fonctionnalités
+> **Projet d'apprentissage.** Je suis parti d'un tutoriel YouTube ([auteur et lien à ajouter]). J'ai d'abord essayé de le construire seul, en regardant la vidéo quand j'étais bloqué, puis je l'ai **reconstruit de zéro** avec mes propres données et mes propres corrections (voir plus bas). Les données (fournisseurs, factures, montants) sont **fictives**.
 
-- Suivi des factures fournisseurs et des paiements
-- Calcul automatique du solde restant à payer
-- Classement des factures par retard (échue, non échue, 30/60/90 jours)
-- Calcul du **DPO** (délai moyen de paiement)
-- Tableau de bord avec graphiques et filtres
-- Boutons (macros VBA) pour ajouter une facture/un paiement en un clic
-- ---
-## Tableau de bord
-Vue d'ensemble : total des achats, montant payé, factures à venir, retards, taux de paiement, balance âgée, évolution du DPO, top fournisseurs impayés, et solde par catégorie.
+## Aperçu
 
-<img width="1287" height="486" alt="Tableau de bord" src="https://github.com/user-attachments/assets/8c6fc839-311b-44d3-bea3-9b14e81cd889" />
+<img width="856" height="488" alt="TB" src="https://github.com/user-attachments/assets/ed9dea0c-557c-4c72-aabe-db54a0c379b5" />
+*Tableau de bord : total achats, total payé, reste à payer, retards, factures échues, soldes par fournisseur et par catégorie. Des segments filtrent par fournisseur et par mois.*
 
----
-## Liste des règlements
-Formulaire pour enregistrer un paiement, avec l'historique de tous les règlements effectués (référence, montant, mode de paiement).
+<img width="1267" height="380" alt="Liste des dettes" src="https://github.com/user-attachments/assets/f857dab5-1b98-48b9-8f96-c6273bab0da0" />
+*Feuille Dette : formulaire de saisie et tableau des factures avec montant payé, solde, échéance, retard et statut calculés automatiquement.*
 
-<img width="859" height="601" alt="Liste de réglements" src="https://github.com/user-attachments/assets/71c3b103-1184-41f2-8284-1f8f6cfc7c32" />
+<img width="903" height="475" alt="Réglement" src="https://github.com/user-attachments/assets/c98146e6-2101-4556-a1d0-e7c7d9949821" />
 
----
-## Liste de dettes
-Formulaire pour ajouter une nouvelle facture fournisseur, avec la liste complète des factures et leur statut (payé, échue, en retard).
+*Feuille Règlement : le numéro de facture remplit le fournisseur et le solde ; chaque paiement est enregistré avec sa référence et son mode.*
 
-<img width="1232" height="568" alt="Liste de dettes" src="https://github.com/user-attachments/assets/e1bcb4c6-85f6-460b-bc5a-50f8c5ddf735" />
+<img width="1215" height="553" alt="Liste Des Fournisseurs" src="https://github.com/user-attachments/assets/fa98ca53-eeec-4a8e-992c-23a7ca50ae77" />
 
----
-## Liste de fournisseurs
-Répertoire des fournisseurs (nom, catégorie, coordonnées) et la date de référence utilisée pour les calculs.
+*Feuille Paramètres : liste des fournisseurs (avec leur catégorie) et date de référence.*
 
-<img width="1238" height="506" alt="Liste de fournisseurs" src="https://github.com/user-attachments/assets/2ad66caf-8301-48c9-a8b3-1684d8631ce7" />
+## Fonctionnement
 
----
+- **Dette** : on saisit une facture (numéro, date, fournisseur en liste déroulante, délai, montant). La catégorie est reprise automatiquement des paramètres.
+- **Règlement** : on saisit le numéro de facture, et le fournisseur et le solde s'affichent. On enregistre la date, la référence, le montant et le mode de paiement.
+- **Calculs automatiques** dans le tableau des dettes :
+  - Montant payé = somme des règlements de la facture ;
+  - Solde = montant à payer − montant payé ;
+  - Échéance = date de facture + délai ;
+  - Retard = jours écoulés depuis l'échéance, tant qu'il reste un solde ;
+  - Statut : *Payé*, *Non échue*, *Échue* ou *Trop-perçu*.
+- **Date de référence** : la date du jour par défaut (`AUJOURDHUI()`), qu'on peut remplacer par une date fixe pour produire un état à une date donnée.
+- **Tableau de bord** : alimenté par des tableaux croisés dynamiques (feuille *Traitement*), avec un bouton d'actualisation.
+- **Macros VBA** : ajout d'une dette et d'un règlement, annulation de la saisie, navigation entre les feuilles, actualisation.
+  - L'ajout d'une dette vérifie les champs vides et refuse un numéro de facture déjà utilisé.
 
-## Compétences utilisées
+## Ce que j'ai modifié par rapport au tutoriel
 
-- **Excel avancé** : tableaux structurés, formules (SUMIF, IF imbriqués), liste déroulante dynamique
-- **Finance** : logique d'aging, calcul du DPO
-- **Tableaux croisés dynamiques & graphiques** : 9 TCD, 5 graphiques, un slicer
-- **VBA** : macros pour automatiser la saisie et la navigation
+- Reconstruction complète avec des données marocaines (fournisseurs, montants en DH).
+- Une seule date de référence pour le retard et le statut.
+- Statut « Trop-perçu » pour les règlements supérieurs au montant dû, et retard jamais négatif.
+- Contrôle des doublons de numéro de facture à la saisie.
+- Suppression du calcul du DPO, que j'ai jugé trop lourd pour l'intérêt qu'il apportait.
+- Nettoyage des liens externes et des macros inutilisées.
+
+## Utilisation
+
+1. Ouvrir le fichier `.xlsm` et **activer les macros**.
+2. Saisir les factures dans *Dette* et les paiements dans *Règlement*.
+3. Cliquer sur le bouton d'actualisation du tableau de bord.
