@@ -5,6 +5,7 @@ Application Excel pour suivre les factures fournisseurs, les règlements et les 
 ## Aperçu
 
 <img width="856" height="488" alt="TB" src="https://github.com/user-attachments/assets/ed9dea0c-557c-4c72-aabe-db54a0c379b5" />
+
 *Tableau de bord : total achats, total payé, reste à payer, retards, factures échues, soldes par fournisseur et par catégorie. Des segments filtrent par fournisseur et par mois.*
 
 <img width="1267" height="380" alt="Liste des dettes" src="https://github.com/user-attachments/assets/f857dab5-1b98-48b9-8f96-c6273bab0da0" />
