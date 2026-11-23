@@ -4,19 +4,19 @@ Application Excel pour suivre les factures fournisseurs, les règlements et les 
 
 ## Aperçu
 
-**Tableau de bord**: total achats, total payé, reste à payer, retards, factures échues, soldes par fournisseur et par catégorie. Des segments filtrent par fournisseur et par mois.*
+**Tableau de bord**: total achats, total payé, reste à payer, retards, factures échues, soldes par fournisseur et par catégorie. Des segments filtrent par fournisseur et par mois.
 
 <img width="856" height="488" alt="TB" src="https://github.com/user-attachments/assets/ed9dea0c-557c-4c72-aabe-db54a0c379b5" />
 
-**Feuille Dette** : formulaire de saisie et tableau des factures avec montant payé, solde, échéance, retard et statut calculés automatiquement.*
+**Feuille Dette** : formulaire de saisie et tableau des factures avec montant payé, solde, échéance, retard et statut calculés automatiquement.
 
 <img width="1267" height="380" alt="Liste des dettes" src="https://github.com/user-attachments/assets/f857dab5-1b98-48b9-8f96-c6273bab0da0" />
 
-**Feuille Règlement** : le numéro de facture remplit le fournisseur et le solde ; chaque paiement est enregistré avec sa référence et son mode.*
+**Feuille Règlement** : le numéro de facture remplit le fournisseur et le solde ; chaque paiement est enregistré avec sa référence et son mode.
 
 <img width="903" height="475" alt="Réglement" src="https://github.com/user-attachments/assets/c98146e6-2101-4556-a1d0-e7c7d9949821" />
 
-**Feuille Paramètres** : liste des fournisseurs (avec leur catégorie) et date de référence.*
+**Feuille Paramètres** : liste des fournisseurs (avec leur catégorie) et date de référence.
 
 <img width="1215" height="553" alt="Liste Des Fournisseurs" src="https://github.com/user-attachments/assets/fa98ca53-eeec-4a8e-992c-23a7ca50ae77" />
 
